@@ -7,9 +7,8 @@ import  com.example.queueless.models.QueueEntry;
 import  com.example.queueless.models.QueueStatus;
 
 public interface QueueEntryRepos extends JpaRepository<QueueEntry, Long>{
-    List<QueueEntry> findByQueueEntryIdAndServiceId(Long serviceId);
-    QueueEntry findByNextId(Long entryId);
-    List<QueueEntry> findByEntryStatus(QueueStatus entryStatus);
-    QueueEntry setEntryStatus(QueueStatus entryStatus);
-    QueueEntry findCurrentId(Long entryId);
+
+    List<QueueEntry> findByQueueStatus(QueueStatus queueStatus);
+    List<QueueEntry> findByServiceServiceIdAndQueueStatusOrderByJoinedAtAsc(Long serviceId, QueueStatus entryStatus);
+    List<QueueEntry> findByServiceServiceIdAndQueueStatus(Long serviceId, QueueStatus entryStatus);
 }

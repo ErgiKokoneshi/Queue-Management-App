@@ -41,7 +41,7 @@ public class QueueEntry {
 
     //convenience constructor
     
-    public QueueEntry(LocalDateTime endedAt, LocalDateTime joinedAt, Long queueEntryId, QueueStatus queueStatus, ServiceEntity service, LocalDateTime startedAt) {
+    public QueueEntry(Long queueEntryId, ServiceEntity service, QueueStatus queueStatus, LocalDateTime joinedAt,LocalDateTime startedAt, LocalDateTime endedAt) {
         this.endedAt = endedAt;
         this.joinedAt = joinedAt;
         this.queueEntryId = queueEntryId;
@@ -65,6 +65,8 @@ public class QueueEntry {
 
     //setters
     public void setJoinedAt(LocalDateTime joinedAt){ this.joinedAt = joinedAt;}
+
+    public void setService(ServiceEntity service){ this.service = service;}
 
     public void setStartedAt(LocalDateTime startedAt){ this.startedAt = startedAt;}
     

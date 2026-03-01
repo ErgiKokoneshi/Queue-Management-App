@@ -36,16 +36,16 @@ public class ServiceEntityService {
     }
 
     public List<ServiceEntity> listAllServicesOfABusiness(Long businessId){
-        List<ServiceEntity> listOfAllServices = serviceRepos.findAllByBusinessId(businessId);
+        List<ServiceEntity> listOfAllServices = serviceRepos.findAllByBusinessBusinessId(businessId);
         return listOfAllServices;
     }
 
     public boolean checkServiceExistsForABusiness(Long businessId, Long serviceId){
-        return serviceRepos.existsByBusinessIdAndId(businessId, serviceId);
+        return serviceRepos.existsByBusinessBusinessIdAndServiceId(businessId, serviceId);
     }
 
     public boolean checkServiceIsOwnedByOneBusinessOnly(Long businessId,Long serviceId){
-        if(serviceRepos.existsByBusinessIdAndId(businessId, serviceId)){
+        if(serviceRepos.existsByBusinessBusinessIdAndServiceId(businessId, serviceId)){
             return true;
         }else{
             throw new NoSuchElementException("This Service Doesn't belong to this Business");
